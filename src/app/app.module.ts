@@ -6,16 +6,20 @@ import { AppComponent } from './app.component';
 import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import { NavigationComponent } from './components/navigation/navigation.component';
+import {MaterialModule} from "./material/material/material.module";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
