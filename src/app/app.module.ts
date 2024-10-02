@@ -9,12 +9,14 @@ import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 import { NavigationComponent } from './components/navigation/navigation.component';
 import {MaterialModule} from "./material/material/material.module";
 import { CustomersComponent } from './components/customers/customers.component';
+import { CustomerDialogComponent } from './components/dialogs/customer-dialog/customer-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    CustomersComponent
+    CustomersComponent,
+    CustomerDialogComponent
   ],
   imports: [
     BrowserModule,
