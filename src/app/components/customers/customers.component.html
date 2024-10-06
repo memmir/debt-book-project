@@ -8,6 +8,26 @@
       </mat-header-cell>
       <mat-cell *matCellDef="let customer"> {{customer.CustomerName}} </mat-cell>
     </ng-container>
+    <ng-container matColumnDef="CustomerPhone">
+      <mat-header-cell *matHeaderCellDef> Customer Phone
+      </mat-header-cell>
+      <mat-cell *matCellDef="let customer"> {{customer.CustomerPhone}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="Calculations">
+      <mat-header-cell *matHeaderCellDef> Calculations
+      </mat-header-cell>
+      <mat-cell *matCellDef="let customer">
+          <button mat-icon-button color="primary">
+            <mat-icon aria-label="label">list</mat-icon>
+          </button>
+        <button mat-icon-button color="accent">
+          <mat-icon aria-label="label">edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn">
+          <mat-icon aria-label="label">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
