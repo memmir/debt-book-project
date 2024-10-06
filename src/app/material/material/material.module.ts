@@ -8,6 +8,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatIconModule} from "@angular/material/icon";
 import {MatListModule} from "@angular/material/list";
+import {MatDialogModule} from "@angular/material/dialog";
 
 const MatModules = [
   BrowserAnimationsModule,
@@ -17,7 +18,8 @@ const MatModules = [
   MatSidenavModule,
   MatIconModule,
   MatListModule,
-  MatTableModule
+  MatTableModule,
+  MatDialogModule,
 ]
 
 @NgModule({

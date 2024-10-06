@@ -18,9 +18,11 @@ export class CustomersComponent implements OnInit {
   displayedColumns = ['CustomerName', 'CustomerPhone', 'Calculations']
 
 
+  dialogRef?: MatDialogRef<CustomerDialogComponent>;
 
   constructor(
     private afs: FsApiService,
+    private matDialog:MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -35,6 +37,15 @@ export class CustomersComponent implements OnInit {
         }as Customer
       })
       this.dataSource = new MatTableDataSource(this.customers);
+    })
+  }
+
+  CreateCustomer(){
+    this.dialogRef = this.matDialog.open(CustomerDialogComponent,{
+      width: "500px",
+      data:{
+        islem:"Create"
+      }
     })
   }
 
