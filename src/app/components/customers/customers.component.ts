@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomersComponent implements OnInit {
 
+  dataSource:any;
+  displayedColumns = ['CustomerName', 'CustomerPhone', 'Calculations']
+
   constructor() { }
 
   ngOnInit(): void {
