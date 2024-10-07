@@ -30,7 +30,7 @@ export class CustomersComponent implements OnInit {
 
   GetAllCustomers(): void {
     this.afs.getAllCustomers().subscribe((data:any)=>{
-      this.customers = data.map(a=>{
+      this.customers = data.map((a: { payload: { doc: { id: any; data: () => Customer; }; }; })=>{
         return{
           CustomerId:a.payload.doc.id,
           ...a.payload.doc.data()
