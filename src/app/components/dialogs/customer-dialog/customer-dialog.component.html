@@ -1,1 +1,19 @@
-<p>customer-dialog works!</p>
+<mat-toolbar color="primary" class="mat-elevation-z6">
+  <span>{{Baslik}}</span>
+</mat-toolbar>
+
+<div class="container" *ngIf="form">
+  <form [formGroup]="form">
+    <mat-form-field>
+      <input matInput placeholder="Customer Name" formControlName="CustomerName">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Customer Phone" formControlName="CustomerPhone">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Customer Address" formControlName="CustomerAddress">
+    </mat-form-field>
+    <button mat-raised-button color="primary">Save</button>
+    <button mat-raised-button color="warn">Decline</button>
+  </form>
+</div>

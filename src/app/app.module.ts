@@ -10,6 +10,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import {MaterialModule} from "./material/material/material.module";
 import { CustomersComponent } from './components/customers/customers.component';
 import { CustomerDialogComponent } from './components/dialogs/customer-dialog/customer-dialog.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { CustomerDialogComponent } from './components/dialogs/customer-dialog/cu
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    MaterialModule
+    MaterialModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
