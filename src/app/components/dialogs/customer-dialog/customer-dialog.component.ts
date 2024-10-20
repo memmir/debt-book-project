@@ -23,6 +23,9 @@ export class CustomerDialogComponent implements OnInit {
     if(this.data.islem=="Create"){
       this.customerRecord = new Customer();
     }
+    else if (this.data.islem=="Update"){ // 2)) duzenleme için customer da yazdığımız metodun customer dialog pop-up daki kontrolünü ekledik.
+      this.customerRecord = this.data.kayit
+    }
   }
 
   ngOnInit(): void {

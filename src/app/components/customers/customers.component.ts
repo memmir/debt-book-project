@@ -26,6 +26,7 @@ export class CustomersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.GetAllCustomers(); // Sayfa yüklendiğinde veritabanındaki bütün kayıtları getir dedik.
   }
 
   GetAllCustomers(): void {
@@ -52,6 +53,16 @@ export class CustomersComponent implements OnInit {
       this.GetAllCustomers()
     })
   })
+  }
+
+  UpdateCustomer(customer:Customer){ // 1)))duzenleme için olan metodunu yazdık.
+    this.dialogRef = this.matDialog.open(CustomerDialogComponent,{
+      width: "500px",
+      data:{
+        islem:"Update",
+        kayit:customer
+      }
+    })
   }
 
 }
