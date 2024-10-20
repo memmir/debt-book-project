@@ -49,9 +49,11 @@ export class CustomersComponent implements OnInit {
       }
     })
   this.dialogRef.afterClosed().subscribe((data:Customer)=>{  // 2)) html dosyasından gönderdiğimiz data yı burada yakalayıp veritabanınan gönderiyoruz.
-    this.afs.createCustomer(data).then(e=>{
-      this.GetAllCustomers()
-    })
+    if(data){  //1)) veri varsa bu işlemi gerçekleştir yoksa yapma şeklinde bir kontrol ekledik.
+      this.afs.createCustomer(data).then(e=>{
+        this.GetAllCustomers()
+      })
+    }
   })
   }
 
@@ -61,6 +63,13 @@ export class CustomersComponent implements OnInit {
       data:{
         islem:"Update",
         kayit:customer
+      }
+    })
+    this.dialogRef.afterClosed().subscribe((data:Customer)=>{  // 2)) html dden gönderdiğimiz verileri yakaladık ve veritabanında update işlemini yaptık.
+      if(data){
+        this.afs.updateCustomer(data).then(e=>{
+          this.GetAllCustomers()
+        })
       }
     })
   }
