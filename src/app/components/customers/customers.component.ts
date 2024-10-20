@@ -47,6 +47,11 @@ export class CustomersComponent implements OnInit {
         islem:"Create"
       }
     })
+  this.dialogRef.afterClosed().subscribe((data:Customer)=>{  // 2)) html dosyasından gönderdiğimiz data yı burada yakalayıp veritabanınan gönderiyoruz.
+    this.afs.createCustomer(data).then(e=>{
+      this.GetAllCustomers()
+    })
+  })
   }
 
 }
