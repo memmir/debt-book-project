@@ -12,13 +12,15 @@ import { CustomersComponent } from './components/customers/customers.component';
 import { CustomerDialogComponent } from './components/dialogs/customer-dialog/customer-dialog.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ReactiveFormsModule} from "@angular/forms";
+import { ConfirmDialogComponent } from './components/dialogs/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     CustomersComponent,
-    CustomerDialogComponent
+    CustomerDialogComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
