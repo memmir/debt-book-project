@@ -92,10 +92,13 @@ export class CustomersComponent implements OnInit {
       data: customer.CustomerName + "Named customer will be delete."
     })
     this.confirmDialogRef.afterClosed().subscribe((data:Boolean)=>{
-      if(data == true){
+      if(data == true && customer.CustomerId){ // CustomerId'nin undefined olmadığı kontrol ediliyor
         this.afs.deleteCustomer(customer.CustomerId).then(e=>{
           this.GetAllCustomers()
         })
+      }
+      else {
+        console.error("CustomerId is missing or undefined.");
       }
     })
   }
