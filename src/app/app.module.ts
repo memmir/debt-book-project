@@ -14,6 +14,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ReactiveFormsModule} from "@angular/forms";
 import { ConfirmDialogComponent } from './components/dialogs/confirm-dialog/confirm-dialog.component';
 import { BorclarComponent } from './components/borclar/borclar.component';
+import { BorcDialogComponent } from './components/dialogs/borc-dialog/borc-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BorclarComponent } from './components/borclar/borclar.component';
     CustomersComponent,
     CustomerDialogComponent,
     ConfirmDialogComponent,
-    BorclarComponent
+    BorclarComponent,
+    BorcDialogComponent
   ],
   imports: [
     BrowserModule,

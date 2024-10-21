@@ -11,6 +11,8 @@ import {MatListModule} from "@angular/material/list";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {MatTooltipModule} from "@angular/material/tooltip";
+
 
 const MatModules = [
   BrowserAnimationsModule,
@@ -24,6 +26,7 @@ const MatModules = [
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
+  MatTooltipModule
 ]
 
 @NgModule({
