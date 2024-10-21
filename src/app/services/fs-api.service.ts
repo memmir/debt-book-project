@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Customer} from "../models/Customer";
+import {Borc} from "../models/Borc";
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,21 @@ export class FsApiService {
 
   deleteCustomer(customerId:string){
     return this.afs.collection('customers').doc(customerId).delete()
+  }
+
+  borcByCustomerId(customerId:string){
+    return this.afs.collection('borclar', q=>q.where('CustomerId', '==', customerId)).snapshotChanges()
+  }
+
+  createBorc(borc:Borc){
+   return this.afs.collection('borclar').add(borc)
+  }
+
+  updateBorc(borc:Borc){
+    return this.afs.collection('borclar').doc(borc.BorcId).update(borc)
+  }
+
+  deleteBorc(borcId:string){
+    return this.afs.collection('borclar').doc(borcId).delete()
   }
 }
