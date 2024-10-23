@@ -19,7 +19,7 @@ export class BorclarComponent implements OnInit {
   displayedColumns = ['Description', 'BorcAmount', 'Calculations']
   dialogRef?: MatDialogRef<BorcDialogComponent>
   customerId!:string
-  borclar!:Borc[];
+  borclar?:Borc[] = [];
   customer: Customer = new Customer();
   confirmDialogRef?:MatDialogRef<ConfirmDialogComponent>
 
@@ -49,9 +49,17 @@ export class BorclarComponent implements OnInit {
   }
 
   GetCustomer(){
-    this.afs.borcByCustomerId(this.customerId).subscribe((data: Customer)=>{ // todo bug var
-      this.customer=data
-    })
+    // this.afs.getCustomerById(this.customerId).subscribe((data: Customer)=>{ // todo bug var
+    //   this.customer=data
+    // })
+
+    this.afs.getCustomerById(this.customerId).subscribe((snapshot: any) => {
+      const customerData = snapshot.payload.data() as Customer;
+      this.customer = {
+        ...customerData,
+        CustomerId: snapshot.payload.id  // CustomerId'yi de manuel olarak ekleyin
+      };
+    });
   }
 
   CreateBorc(){

@@ -1,6 +1,6 @@
 export class Borc {
-  BorcId!: string;
-  MusteriId!: string;
-  Description!: string;
-  BorcTutari!:number;
+  BorcId?: string;
+  MusteriId?: string;
+  Description?: string;
+  BorcTutari?:number;
 }

@@ -9,7 +9,7 @@ const routes: Routes = [
     component: CustomersComponent,
   },
   {
-    path: 'borclar:CustomerId',
+    path: 'borclar/:CustomerId',
     component: BorclarComponent,
   }
 ];

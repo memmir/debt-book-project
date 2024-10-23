@@ -5,10 +5,10 @@
   <button mat-fab color="primary" style="margin-left: 15px" matTooltip="Create new borc" (click)="CreateBorc()">
   <mat-icon aria-label="label">add</mat-icon>
   </button>
-  <mat-toolbar color="primary" class="mat-elevation-z6" *ngIf="this.borclar?.length==0" color="warn">
+  <mat-toolbar color="primary" class="mat-elevation-z6" *ngIf="this.borclar!.length == 0" color="warn">
     <span>{{customer.CustomerName}} Adlı musteriye ait borc kaydi bulunamadi.</span>
   </mat-toolbar>
-  <mat-toolbar color="primary" class="mat-elevation-z6" *ngIf="this.borclar?.length>0" color="primary">
+  <mat-toolbar color="primary" class="mat-elevation-z6" *ngIf="this.borclar!.length > 0" color="primary">
     <span>{{customer.CustomerName}} Adlı musteriye ait borc listesi.</span>
   </mat-toolbar>
    <mat-table [dataSource]="dataSource">
@@ -21,7 +21,7 @@
      <ng-container matColumnDef="BorcAmount">
        <mat-header-cell *matHeaderCellDef> Borc Amount
        </mat-header-cell>
-       <mat-cell *matCellDef="let borc"> {{borc.BorcAmount}}</mat-cell>
+       <mat-cell *matCellDef="let borc"> {{borc.BorcTutari}}</mat-cell>
      </ng-container>
 
      <ng-container matColumnDef="Calculations">

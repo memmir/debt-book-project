@@ -17,7 +17,7 @@ export class FsApiService {
   }
 
   getCustomerById(customerId:string){
-    return this.afs.collection('customers').doc(customerId).valueChanges()  //veri tek olarak getirileceği zaman valueChanges kullandık.
+    return this.afs.collection('customers').doc(customerId).snapshotChanges()  //veri tek olarak getirileceği zaman valueChanges kullandık.
   }
 
   createCustomer(customer:Customer){
