@@ -60,13 +60,31 @@ export class BorclarComponent implements OnInit {
       }
     })
     this.dialogRef.afterClosed().subscribe((data:Borc)=>{
-      data.MusteriId = this.customerId
-      this.afs.createBorc(data).then(e=>{
-        this.BorcByCustomer()
-      })
+      if (data){
+        data.MusteriId = this.customerId
+        this.afs.createBorc(data).then(e=>{
+          this.BorcByCustomer()
+        })
+      }
     })
   }
 
+  EditBorc(borc:Borc){
+    this.dialogRef = this.matDialog.open(BorcDialogComponent,{
+      width:"400px",
+      data:{
+        islem: "Duzenle",
+        kayit:borc
+      }
+    })
+    this.dialogRef.afterClosed().subscribe((data:Borc) =>{
+      if(data){
+        this.afs.updateBorc(data).then(e=>{
+          this.BorcByCustomer()
+      })
+      }
+    })
+  }
 
 
 }

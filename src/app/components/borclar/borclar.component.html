@@ -2,7 +2,7 @@
   <button mat-fab color="primary" matTooltip="Go back to customer list">
     <mat-icon aria-label="label">arrow_back_ios_new</mat-icon>
   </button>
-  <button mat-fab color="primary" style="margin-left: 15px" matTooltip="Create new borc">
+  <button mat-fab color="primary" style="margin-left: 15px" matTooltip="Create new borc" (click)="CreateBorc()">
   <mat-icon aria-label="label">add</mat-icon>
   </button>
    <mat-table [dataSource]="dataSource">
@@ -22,8 +22,8 @@
        <mat-header-cell *matHeaderCellDef> Calculations
        </mat-header-cell>
        <mat-cell *matCellDef="let borc">
-          <button mat-icon-button color="accent" matTooltip="Edit">
-            <mat-icon aria-label="label" >edit</mat-icon>
+          <button mat-icon-button color="accent" matTooltip="Edit" (click)="EditBorc(borc)">
+            <mat-icon aria-label="label">edit</mat-icon>
           </button>
          <button mat-icon-button color="warn" matTooltip="Delete">
            <mat-icon aria-label="label">delete</mat-icon>
