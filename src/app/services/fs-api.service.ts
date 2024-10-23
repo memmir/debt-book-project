@@ -34,7 +34,7 @@ export class FsApiService {
   }
 
   borcByCustomerId(customerId:string){
-    return this.afs.collection('borclar', q=>q.where('CustomerId', '==', customerId)).snapshotChanges()
+    return this.afs.collection('borclar', q=>q.where('CustomerId', '==', customerId)).snapshotChanges() // burada sorgu yazdık q=>q ve devamı sorgu.
   }
 
   createBorc(borc:Borc){

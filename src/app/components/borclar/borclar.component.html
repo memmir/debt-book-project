@@ -6,10 +6,30 @@
   <mat-icon aria-label="label">add</mat-icon>
   </button>
    <mat-table [dataSource]="dataSource">
-     <ng-container matColumnDef="">
-       <mat-header-cell *matHeaderCellDef> columnHeaderLabel
+     <ng-container matColumnDef="Description">
+       <mat-header-cell *matHeaderCellDef> Description
        </mat-header-cell>
-       <mat-cell *matCellDef="let element"> {{element.propertyName}}</mat-cell>
+       <mat-cell *matCellDef="let borc"> {{borc.Description}}</mat-cell>
+     </ng-container>
+
+     <ng-container matColumnDef="BorcAmount">
+       <mat-header-cell *matHeaderCellDef> Borc Amount
+       </mat-header-cell>
+       <mat-cell *matCellDef="let borc"> {{borc.BorcAmount}}</mat-cell>
+     </ng-container>
+
+     <ng-container matColumnDef="Calculations">
+       <mat-header-cell *matHeaderCellDef> Calculations
+       </mat-header-cell>
+       <mat-cell *matCellDef="let borc">
+          <button mat-icon-button color="accent" matTooltip="Edit">
+            <mat-icon aria-label="label" >edit</mat-icon>
+          </button>
+         <button mat-icon-button color="warn" matTooltip="Delete">
+           <mat-icon aria-label="label">delete</mat-icon>
+         </button>
+
+       </mat-cell>
      </ng-container>
 
      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

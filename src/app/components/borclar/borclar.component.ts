@@ -29,6 +29,8 @@ export class BorclarComponent implements OnInit {
 
   ngOnInit(): void {
     this.customerId = this.route.snapshot.params['CustomerId']
+    this.BorcByCustomer()
+    this.GetCustomer()
   }
 
   BorcByCustomer() {
@@ -42,6 +44,21 @@ export class BorclarComponent implements OnInit {
       });
       this.dataSource = new MatTableDataSource(this.borclar);
     });
+  }
+
+  GetCustomer(){
+    this.afs.borcByCustomerId(this.customerId).subscribe((data: Customer)=>{ // todo bug var
+      this.customer=data
+    })
+  }
+
+  CreateBorc(){
+    this.dialogRef = this.matDialog.open(BorcDialogComponent, {
+      width: "400px",
+      data:{
+        islem:"Ekle"
+      }
+    })
   }
 
 }
