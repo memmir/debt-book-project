@@ -6,6 +6,7 @@ import {ActivatedRoute} from "@angular/router";
 import {Borc} from "../../models/Borc";
 import {Customer} from "../../models/Customer";
 import {MatTableDataSource} from "@angular/material/table";
+import {ConfirmDialogComponent} from "../dialogs/confirm-dialog/confirm-dialog.component";
 
 @Component({
   selector: 'app-borclar',
@@ -20,6 +21,7 @@ export class BorclarComponent implements OnInit {
   customerId!:string
   borclar!:Borc[];
   customer: Customer = new Customer();
+  confirmDialogRef?:MatDialogRef<ConfirmDialogComponent>
 
   constructor(
     private matDialog:MatDialog,
@@ -85,6 +87,20 @@ export class BorclarComponent implements OnInit {
       }
     })
   }
+DeleteBorc(borcId:string){
+    this.confirmDialogRef = this.matDialog.open(ConfirmDialogComponent,{
+      width:"300px",
+      data: "borc silinsin mi?"
+    })
+  this.confirmDialogRef.afterClosed().subscribe((data:Boolean)=>{
+    if(data==true){
+      this.afs.deleteBorc(borcId).then(e=>{
+        this.BorcByCustomer()
+      })
+    }
+  })
 
+
+}
 
 }
