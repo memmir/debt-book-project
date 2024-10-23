@@ -59,6 +59,14 @@ export class BorclarComponent implements OnInit {
         islem:"Ekle"
       }
     })
+    this.dialogRef.afterClosed().subscribe((data:Borc)=>{
+      data.MusteriId = this.customerId
+      this.afs.createBorc(data).then(e=>{
+        this.BorcByCustomer()
+      })
+    })
   }
+
+
 
 }

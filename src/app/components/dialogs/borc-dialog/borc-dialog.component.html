@@ -1,1 +1,16 @@
-<p>borc-dialog works!</p>
+<mat-toolbar color="primary" class="mat-elevation-z6">
+  <span>Borc {{Baslik}}</span>
+</mat-toolbar>
+
+<div class="container">
+  <form [formGroup]="form"> <!-- 2))) ts tarafında tanımladığımız form u burada kullanuıyoruz-->
+    <mat-form-field>
+      <input matInput placeholder="Description" formControlName="Description">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Tutar" formControlName="BorcAmount" type="number">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="this.dialogRef.close(form.value)">Save</button>
+    <button mat-raised-button color="warn" (click)="this.dialogRef.close()">Cancel</button>
+  </form>
+</div>

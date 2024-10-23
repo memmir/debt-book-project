@@ -38,7 +38,9 @@ export class FsApiService {
   }
 
   createBorc(borc:Borc){
-   return this.afs.collection('borclar').add(borc)
+    // @ts-ignore
+    delete borc.BorcId // todo hata vardı @ts-ignore ile çözüdlü tekrar bakılacak.
+    return this.afs.collection('borclar').add(borc)
   }
 
   updateBorc(borc:Borc){
